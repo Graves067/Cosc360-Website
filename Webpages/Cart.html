@@ -4,7 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/Cart.css">
+    <link rel="stylesheet" href="../CSS/Navbar.css">
     
 
     <title>Cart</title>
 </head>
+
+<body>
+  
+    <div class="cart-container">
+        <div class="cart-item">
+            <div class="image">
+                <img src="../images/Thebeesknees.png" alt="Image">
+            </div>
+            <div class="item-details">
+                <div class="price">$20.00</div>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <input type="text" value="1" size="1" readonly>
+                    <button>+</button>
+                </div>
+                <button class="remove-button">Remove from Cart</button>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="image">
+                <img src="../images/StormSock.png" alt="Image">
+            </div>
+            <div class="item-details">
+                <div class="price">$15.00</div>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <input type="text" value="1" size="1" readonly>
+                    <button>+</button>
+                </div>
+                <button class="remove-button">Remove from Cart</button>
+            </div>
+        </div>
+        <div class="cart-item">
+            <div class="image">
+                <img src="../images/TempSocks.png" alt="Image">
+            </div>
+            <div class="item-details">
+                <div class="price">$10.00</div>
+                <div class="quantity-control">
+                    <button>-</button>
+                    <input type="text" value="1" size="1" readonly>
+                    <button>+</button>
+                </div>
+                <button class="remove-button">Remove from Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="checkout-container">
+        <input type="text" value="$0.00" readonly>
+        <button class="checkout-button">Checkout</button>
+    </div>
+</body>

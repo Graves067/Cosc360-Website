@@ -1,0 +1,45 @@
+.navbar {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF3DD;
+border: 3px solid #FAF3DD;
+border-radius: 15px;
+bottom:50px;
+    height: 50px;
+    width: 50%;
+    max-width: 1200px;
+}
+
+.links {
+    list-style: none;  
+    display: flex;
+    font-size: x-large;
+    gap: 20px;  
+    padding: 0;
+    margin: 0;  
+}
+
+
+
+.links a {
+    text-decoration: none;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.links a:hover {
+    background-color: #ffab40;
+}
+.logo{
+    font-size: xx-large;
+    font: bold;
+}
+.banner{
+    width: 1500px;
+    display: flex;
+    justify-content: center;
+    height: 700px;
+}
