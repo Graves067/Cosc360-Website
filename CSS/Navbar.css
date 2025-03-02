@@ -1,12 +1,12 @@
 .navbar {
-    position: absolute;
+    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #FAF3DD;
-border: 3px solid #FAF3DD;
-border-radius: 15px;
-bottom:50px;
+    border: 3px solid #FAF3DD;
+    border-radius: 15px;
+    bottom:50px;
     height: 50px;
     width: 50%;
     max-width: 1200px;
@@ -32,14 +32,4 @@ bottom:50px;
 
 .links a:hover {
     background-color: #ffab40;
-}
-.logo{
-    font-size: xx-large;
-    font: bold;
-}
-.banner{
-    width: 1500px;
-    display: flex;
-    justify-content: center;
-    height: 700px;
 }

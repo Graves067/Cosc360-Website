@@ -11,6 +11,16 @@
 </head>
 
 <body>
+
+    <nav class="navbar">
+        <ul class="links">
+            <li><a href="Home.html">Shop</a></li>
+            <li><a href="Cart.html">Cart</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+            <li><a href="Saved.html">Saved</a></li>
+            <li><a href="About.html">About</a></li>
+        </ul>
+    </nav>
   
     <div class="cart-container">
         <div class="cart-item">
@@ -20,9 +30,9 @@
             <div class="item-details">
                 <div class="price">$20.00</div>
                 <div class="quantity-control">
-                    <button>-</button>
-                    <input type="text" value="1" size="1" readonly>
-                    <button>+</button>
+                    <button class = "decrease">-</button>
+                    <input type="number" value="1" size="1" readonly>
+                    <button class = "increase">+</button>
                 </div>
                 <button class="remove-button">Remove from Cart</button>
             </div>
@@ -34,9 +44,9 @@
             <div class="item-details">
                 <div class="price">$15.00</div>
                 <div class="quantity-control">
-                    <button>-</button>
-                    <input type="text" value="1" size="1" readonly>
-                    <button>+</button>
+                    <button class = "decrease">-</button>
+                    <input type="number" value="1" size="1" readonly>
+                    <button class = "increase">+</button>
                 </div>
                 <button class="remove-button">Remove from Cart</button>
             </div>
@@ -48,16 +58,42 @@
             <div class="item-details">
                 <div class="price">$10.00</div>
                 <div class="quantity-control">
-                    <button>-</button>
-                    <input type="text" value="1" size="1" readonly>
-                    <button>+</button>
+                    <button class = "decrease">-</button>
+                    <input type="number" value="1" size="1" readonly>
+                    <button class = "increase">+</button>
                 </div>
                 <button class="remove-button">Remove from Cart</button>
             </div>
         </div>
     </div>
     <div class="checkout-container">
-        <input type="text" value="$0.00" readonly>
+        <input type="number" value="$0.00" readonly>
         <button class="checkout-button">Checkout</button>
     </div>
+
+    <script>
+
+        //incriment ammount button.
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const decreaseBtn = item.querySelector('.decrease');
+            const increaseBtn = item.querySelector('.increase');
+            const quantityInput = item.querySelector('.quantity-control input');
+            
+            decreaseBtn.addEventListener('click', () => {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                    updateTotal();
+                }
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+                updateTotal();
+            });
+            
+        });
+
+    </script>
 </body>
