@@ -5,7 +5,8 @@ CREATE TABLE users (
   uid SERIAL NOT NULL,
   username VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
-  image BLOB,
+  pfp BLOB,
+  email VARCHAR(255) NOT NULL,
   cart int NOT NULL,
   saved int NOT Null,
   PRIMARY KEY (uid)

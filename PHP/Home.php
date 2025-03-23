@@ -146,14 +146,12 @@ echo "Welcome, " . $_SESSION['username'] . "!";
 </body>
 <?php
     include 'config.php';
-   try {
+
+    session_start();
+    $user_id = $_SESSION['user_id'];
     
-    $pdo = new PDO($dsn, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-    // Handle any database connection errors
-    echo "Connection failed: " . $e->getMessage();
-    exit;
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
     }
 
     try {
@@ -167,7 +165,7 @@ echo "Welcome, " . $_SESSION['username'] . "!";
         <div class="container">
             <div class="card">
                 <div class="image">
-                    <img src="../images/<?php echo htmlspecialchars($product['image_url']); ?>" alt="Image">
+                    <img src="../images/<?php echo htmlspecialchars($product['product_image']); ?>" alt="Image">
                 </div>
                 <div class="content">
                     <div class="title"><?php echo htmlspecialchars($product['title']); ?></div>
