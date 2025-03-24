@@ -1,0 +1,3 @@
+[submodule "Cosc360-Website"]
+	path = Cosc360-Website
+	url = https://github.com/Graves067/Cosc360-Website.git
