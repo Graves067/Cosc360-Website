@@ -15,7 +15,7 @@ if (isset($_SESSION['uid'])) {
 
 // Redirect guests to signup page for Cart and Saved page actions
 if (isset($_POST['add_to_cart']) || isset($_POST['add_to_saved'])) {
-    if (isset($_SESSION['guest']) && $_SESSION['guest'] == true) {
+    if (!isset($_SESSION['uid']) && isset($_SESSION['guest']) && $_SESSION['guest'] == true) {
         // Redirect guests to signup page if they try to add to cart or saved
         header("Location: ../Webpages/Signup.html");
         exit();
@@ -85,7 +85,7 @@ if (isset($_POST['logout'])) {
             <li><a href="Home.php?page=cart">Cart</a></li> <!-- Cart link with GET parameter -->
             <li><a href="Profile.php">Profile</a></li>
             <li><a href="Home.php?page=saved">Saved</a></li> <!-- Saved link with GET parameter -->
-            <li><a href="About.php">About</a></li>
+            <li><a href="Search.php">Search</a></li>
         </ul>
     </nav>
 

@@ -48,7 +48,7 @@
                     // Set session variables
                     $_SESSION['uid'] = $user['uid'];  // Set user ID session
                     $_SESSION['username'] = $username; // Set username session
-
+                    $_SESSION['guest'] = false;
                     // Redirect to Home.php after successful login
                     header('Location: Home.php');
                     exit();
