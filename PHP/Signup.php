@@ -118,3 +118,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Home.css">
+
+    <title>signup</title>
+</head>
+<body>
+    <div class="container">
+    <div class="image-container">
+        <img src="../images/startSock.png" alt="Sock-A-Zon Banner" class="startImage">
+    </div>
+<div class="button-container">
+<form action="../PHP/Signup.php" method="POST" enctype="multipart/form-data">
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+<br><br>
+<label for="email">Email:</label>
+<input type="text" id="email" name="email" required>
+<br><br>
+<label for="password">Password:</label>
+<input type="text" id="password" name="password" required>
+<br><br>
+<label for="confpassword">Confirm Password:</label>
+<input type="text" id="confpassword" name="confpassword" required>
+<br><br>
+<label for="userImage">Upload Profile Image:</label>
+<input type="file" id="userImage" name="userImage" accept="image/*">
+<br><br>
+<button type="submit">Sign up</button>
+
+    </form>
+</div>
+</div>
+</body>
