@@ -10,10 +10,11 @@ include 'config.php';
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Ensure that the required form fields are set
-    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confpassword'])) {
+    if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confpassword']) && isset($_POST['email'])) {
         // Get form input values
         $username = trim($_POST['username']);
         $password = $_POST['password'];
+        $password = $_POST['email'];
         $confpassword = $_POST['confpassword'];
 
         // Check if the passwords match
@@ -67,8 +68,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if ($stmt->rowCount() > 0) {
                     echo "Username already exists!";
                 } else {
-                    // Insert new user (without image initially)
-                    $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+                    // Insert new user into the database
+                    $stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
                     if ($stmt->execute([$username, $hashed_password])) {
                         // Get the UID of the inserted user
                         $uid = $conn->lastInsertId();

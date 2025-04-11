@@ -4,7 +4,7 @@
 // Replace these values with your own database connection settings
 $servername = "localhost";  // or your server
 $username = "root";         // database username
-$password = "";             // database password
+$password = "Compass1234!";             // database password
 $dbname = "sockazon";       // your database name
 
 try {
