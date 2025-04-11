@@ -24,6 +24,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_email'])) {
     $stmt->close();
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['username'])) {
+    $username = filter_var($_POST['username']);
+    $stmt = $conn->prepare("UPDATE users SET username = ? WHERE id = ?");
+    $stmt->bind_param("ii", $username, $uid);
+    if ($stmt->execute()) {
+        $message = "username updated successfully.";
+    } else {
+        $message = "Failed to update username.";
+    }
+    $stmt->close();
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password'])) {
+    $password = filter_var($_POST['password']);
+    $stmt = $conn->prepare("UPDATE users SET password = ? WHERE id = ?");
+    $stmt->bind_param("ii", $password, $uid);
+    if ($stmt->execute()) {
+        $message = "password updated successfully.";
+    } else {
+        $message = "Failed to update password.";
+    }
+    $stmt->close();
+}
+
 // Handle profile image upload
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upload_image'])) {
     if (isset($_FILES['userImages']) && $_FILES['userImages']['error'] === 0) {
@@ -82,8 +106,21 @@ $stmt->close();
 <html>
 <head>
     <title>Settings</title>
+    <link rel="stylesheet" href="../CSS/Settings.css"> <!-- Misspelled 'Settings.css' -->
 </head>
 <body>
+
+<nav class="bar">
+            <ul class="links">
+                <li><a href="Saved.html">Saved</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+                <li><a href="Cart.html">Cart</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Home.html">Shop</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Account Settings</h1>
     <?php if ($message): ?>
         <p><strong><?= htmlspecialchars($message) ?></strong></p>
@@ -91,6 +128,14 @@ $stmt->close();
 
     <h3>Change Email</h3>
     <form method="POST">
+
+    <label for="username">Username:</label>
+
+            <input type="text" id="usename" name="username" value="John Doe"> <!-- Misspelled 'username' ID -->
+
+            <label for="password">New Password:</label>
+            <input type="passwrd" id="password" name="password"> <!-- Misspelled 'password' type -->
+
         <input type="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
         <button type="submit" name="update_email">Update Email</button>
     </form>
